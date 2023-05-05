@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import movieAPI from 'services/moviesAPI';
 
 import css from '../pages.module.css';
@@ -8,6 +8,8 @@ const Movies = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') ?? '';
+
+  const location = useLocation();
 
   const showSearchParams = e => {
     if (e.target.value === '') {
@@ -23,6 +25,10 @@ const Movies = () => {
 
     setMovies(response.data.results);
   };
+
+  useEffect(() => {
+    handleOnSubmit();
+  }, [handleOnSubmit]);
 
   return (
     <>
@@ -40,7 +46,9 @@ const Movies = () => {
         <ul className={css.links_list}>
           {movies.map(({ title, id }) => (
             <li key={id}>
-              <Link to={`/movies/${id}`}>{title}</Link>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </Link>
             </li>
           ))}
         </ul>
