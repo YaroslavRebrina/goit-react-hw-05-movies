@@ -4,6 +4,8 @@ import CastItem from 'components/CastItem/CastItem';
 import movieAPI from 'services/moviesAPI';
 import IMAGES_BASE_URL from 'constatns/constants';
 
+import css from './Cast.module.css';
+
 const Cast = () => {
   const [crew, setCrew] = useState([]);
 
@@ -27,16 +29,18 @@ const Cast = () => {
       {crew.length === 0 ? (
         <p>Cast is unknown</p>
       ) : (
-        crew.map(({ name, profile_path, original_name }) => {
-          return (
-            <CastItem
-              key={name}
-              img={IMAGES_BASE_URL + profile_path}
-              name={name}
-              role={name}
-            />
-          );
-        })
+        <ul className={css.cast__wrapper}>
+          {crew.map(({ name, profile_path, original_name }) => {
+            return (
+              <CastItem
+                key={name}
+                img={IMAGES_BASE_URL + profile_path}
+                name={name}
+                role={name}
+              />
+            );
+          })}
+        </ul>
       )}
     </>
   );

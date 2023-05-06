@@ -54,14 +54,22 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
-      <ul>
+      <ul className={css.additional__info_wrapper}>
         <li>
-          <Link to="cast" state={movieid}>
+          <Link
+            to="cast"
+            state={movieid}
+            className={css.buttons__addtional__info}
+          >
             cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={movieid}>
+          <Link
+            to="reviews"
+            state={movieid}
+            className={css.buttons__addtional__info}
+          >
             reviews
           </Link>
         </li>
