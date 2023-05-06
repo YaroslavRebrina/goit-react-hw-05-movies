@@ -1,12 +1,17 @@
-const { Link, Outlet } = require('react-router-dom');
+import { Link, Outlet } from 'react-router-dom';
+import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+      <header className={css.header}>
+        <nav className={css.header__navigation}>
+          <Link to="/" className={css.navigation__button}>
+            Home
+          </Link>
+          <Link to="/movies" className={css.navigation__button}>
+            Movies
+          </Link>
         </nav>
       </header>
       <main>

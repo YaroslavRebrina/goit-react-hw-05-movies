@@ -13,11 +13,11 @@ const fetchMovieOnQuery = query =>
 
 const fecthMovieDetails = id => axios.get(`/movie/${id}?${keySearchParam}`);
 
-const fetchMovieCredits = () =>
-  axios.get(`/movies/get-movie-credits?${keySearchParam}`);
+const fetchMovieCredits = movieId =>
+  axios.get(`/movie/${movieId}/credits?${keySearchParam}`);
 
-const fetchMovieRewievs = () =>
-  axios.get(`/movies/get-movie-reviews?${keySearchParam}`);
+const fetchMovieRewievs = movieId =>
+  axios.get(`/movie/${movieId}/reviews?${keySearchParam}`);
 
 const movieAPI = {
   fecthMovieDetails,

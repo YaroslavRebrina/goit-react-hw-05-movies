@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import movieAPI from 'services/moviesAPI';
 
@@ -25,10 +25,6 @@ const Movies = () => {
 
     setMovies(response.data.results);
   };
-
-  useEffect(() => {
-    handleOnSubmit();
-  }, [handleOnSubmit]);
 
   return (
     <>
