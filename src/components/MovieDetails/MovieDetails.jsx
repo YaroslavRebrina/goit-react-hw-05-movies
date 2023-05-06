@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Audio } from 'react-loader-spinner';
 import movieAPI from 'services/moviesAPI';
 import IMAGES_BASE_URL from 'constatns/constants';
 
@@ -65,7 +66,9 @@ const MovieDetails = () => {
           </Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Audio />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

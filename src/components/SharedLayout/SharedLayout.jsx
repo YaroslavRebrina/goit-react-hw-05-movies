@@ -1,4 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Audio } from 'react-loader-spinner';
 import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
@@ -15,7 +17,9 @@ const SharedLayout = () => {
         </nav>
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<Audio />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );
