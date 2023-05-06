@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import movieAPI from 'services/moviesAPI';
 import IMAGES_BASE_URL from 'constatns/constants';
@@ -8,6 +8,7 @@ import css from './MovieDetails.module.css';
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/');
   const { movieid } = useParams();
 
   useEffect(() => {
@@ -24,10 +25,10 @@ const MovieDetails = () => {
       console.log(error.message);
     }
   }, [movieid]);
-  console.log(movie);
+
   return (
     <>
-      <Link to={location.state?.from ?? '/'} className={css.back_button}>
+      <Link to={backLink.current} className={css.back_button}>
         Go back
       </Link>
       {movie && (
