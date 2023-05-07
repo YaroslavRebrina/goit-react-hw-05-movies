@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/278.a2fd385e.chunk.css","mappings":"AAAA,wBACE,YAAa,CACb,qBAAsB,CACtB,OACF","sources":["pages/pages.module.css"],"sourcesContent":[".link_list {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}"],"names":[],"sourceRoot":""}

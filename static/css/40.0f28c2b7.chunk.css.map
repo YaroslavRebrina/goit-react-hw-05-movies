@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/40.0f28c2b7.chunk.css","mappings":"AAAA,2BACE,YAAa,CACb,cAAe,CACf,QACF","sources":["components/Cast/Cast.module.css"],"sourcesContent":[".cast__wrapper {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n"],"names":[],"sourceRoot":""}
